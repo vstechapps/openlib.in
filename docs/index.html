@@ -3,9 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>openlib.in</title>
+  <title>OpenLib</title>
 
   <style>
+    :root {
+      --bg: #0b1220;
+      --card: #111827;
+      --border: #1f2937;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --primary: #38bdf8;
+      --secondary: #818cf8;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -14,133 +24,171 @@
     }
 
     body {
-      background: #0f172a;
-      color: #e2e8f0;
-      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
     }
 
+    /* NAVBAR */
     header {
-      padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #1e293b;
+      padding: 18px 50px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(11,18,32,0.9);
+      backdrop-filter: blur(10px);
     }
 
     .logo {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: bold;
-      color: #38bdf8;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
+    nav a {
+      margin-left: 30px;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    /* HERO */
     .hero {
       text-align: center;
-      padding: 100px 20px;
+      padding: 120px 20px 100px;
     }
 
     .hero h1 {
-      font-size: 42px;
+      font-size: 48px;
       margin-bottom: 20px;
-      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .hero p {
       font-size: 18px;
-      color: #94a3b8;
+      color: var(--muted);
       max-width: 700px;
       margin: auto;
     }
 
     .cta {
-      margin-top: 30px;
+      margin-top: 35px;
     }
 
     .btn {
-      padding: 12px 24px;
+      padding: 12px 26px;
       border-radius: 8px;
       border: none;
       cursor: pointer;
       font-weight: 600;
-      margin: 5px;
+      margin: 6px;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .btn-primary {
-      background: #38bdf8;
-      color: #0f172a;
+      background: var(--primary);
+      color: #0b1220;
     }
 
     .btn-secondary {
-      background: transparent;
-      border: 1px solid #334155;
-      color: #e2e8f0;
+      border: 1px solid var(--border);
+      color: var(--text);
     }
 
+    /* SECTIONS */
     .section {
-      padding: 80px 40px;
       max-width: 1100px;
       margin: auto;
+      padding: 80px 40px;
     }
 
     .section h2 {
-      font-size: 28px;
+      font-size: 30px;
       margin-bottom: 20px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
       margin-top: 30px;
     }
 
     .card {
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 12px;
-      border: 1px solid #334155;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 14px;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
     }
 
     .card h3 {
       margin-bottom: 10px;
-      color: #38bdf8;
+      color: var(--primary);
     }
 
     .code {
       background: #020617;
-      padding: 15px;
-      border-radius: 8px;
-      margin-top: 20px;
+      padding: 16px;
+      border-radius: 10px;
+      margin-top: 30px;
       font-family: monospace;
-      color: #38bdf8;
+      color: var(--primary);
+      display: inline-block;
     }
 
+    /* FOOTER */
     footer {
       text-align: center;
       padding: 40px;
-      border-top: 1px solid #1e293b;
-      color: #64748b;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
     }
+
   </style>
 </head>
 
 <body>
 
+  <!-- NAVBAR -->
   <header>
-    <div class="logo">openlib.in</div>
+    <div class="logo">OpenLib</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="https://docs.openlib.in" target="_blank">Getting Started</a>
+      <a href="https://registry.openlib.in" target="_blank">Explore Libraries</a>
+      <a href="#">Support</a>
+    </nav>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
-    <h1>Build Faster. Ship Smarter.</h1>
+    <h1>Modern Node.js Libraries, Reimagined</h1>
     <p>
-      openlib is a modern ecosystem of high-performance, lightweight Node.js libraries 
-      designed to help developers build scalable applications with minimal dependencies.
+      OpenLib is a high-performance, modular ecosystem of lightweight Node.js libraries 
+      designed to help you build scalable applications with minimal dependencies and maximum control.
     </p>
 
     <div class="cta">
-      <button class="btn btn-primary">Get Started</button>
-      <button class="btn btn-secondary">Explore Libraries</button>
+      <a href="https://docs.openlib.in" target="_blank" class="btn btn-primary">Get Started</a>
+      <a href="https://registry.openlib.in" target="_blank" class="btn btn-secondary">Explore Libraries</a>
     </div>
 
     <div class="code">
@@ -148,49 +196,51 @@
     </div>
   </section>
 
+  <!-- WHY -->
   <section class="section">
-    <h2>Why openlib?</h2>
+    <h2>Why OpenLib?</h2>
 
     <div class="grid">
       <div class="card">
         <h3>⚡ Performance First</h3>
-        <p>Built for speed with minimal overhead and optimized execution.</p>
+        <p>Optimized for speed with minimal overhead and efficient execution.</p>
       </div>
 
       <div class="card">
-        <h3>🧩 Modular Design</h3>
-        <p>Use only what you need. Every package is independent and composable.</p>
+        <h3>🧩 Modular Ecosystem</h3>
+        <p>Install only what you need. Each package is independent and composable.</p>
       </div>
 
       <div class="card">
-        <h3>🚫 Less Dependencies</h3>
-        <p>Reduce bloat and improve reliability with lightweight libraries.</p>
+        <h3>🚫 Minimal Dependencies</h3>
+        <p>Reduce bloat and avoid dependency hell with lightweight design.</p>
       </div>
 
       <div class="card">
-        <h3>🧠 Developer Friendly</h3>
-        <p>Clean APIs and consistent patterns across all packages.</p>
+        <h3>🧠 Consistent Developer Experience</h3>
+        <p>Unified APIs and patterns across all OpenLib packages.</p>
       </div>
     </div>
   </section>
 
+  <!-- PACKAGES -->
   <section class="section">
     <h2>Core Packages</h2>
 
     <div class="grid">
       <div class="card">
         <h3>@openlib/api</h3>
-        <p>Fast and minimal API framework for Node.js applications.</p>
+        <p>Minimal, high-performance API framework.</p>
       </div>
 
       <div class="card">
         <h3>@openlib/db</h3>
-        <p>Unified interface with adapter-based support for multiple databases.</p>
+        <p>Adapter-based database abstraction layer.</p>
       </div>
 
       <div class="card">
         <h3>@openlib/ui</h3>
-        <p>Lightweight UI primitives for building modern interfaces.</p>
+        <p>Lightweight UI primitives for modern apps.</p>
       </div>
 
       <div class="card">
@@ -200,16 +250,19 @@
     </div>
   </section>
 
+  <!-- VISION -->
   <section class="section">
-    <h2>Vision</h2>
+    <h2>Our Vision</h2>
     <p>
-      openlib aims to become the go-to ecosystem for developers who want full control, 
-      maximum performance, and minimal complexity—without relying on heavy frameworks.
+      OpenLib aims to redefine how developers build Node.js applications by offering a unified, 
+      high-performance ecosystem that eliminates unnecessary complexity and empowers developers 
+      with complete control over their stack.
     </p>
   </section>
 
+  <!-- FOOTER -->
   <footer>
-    © 2026 openlib.in — Built for developers
+    © 2026 OpenLib — Built for developers who value performance
   </footer>
 
 </body>
