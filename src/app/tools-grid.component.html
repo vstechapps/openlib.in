@@ -1,0 +1,17 @@
+<section class="tool-section section-compact" aria-labelledby="tools-title">
+  <h1 id="tools-title" class="section-heading">Tools</h1>
+  @if (filteredTools().length > 0) {
+    <div class="tool-grid">
+      @for (tool of filteredTools(); track tool.id) {
+        <ol-tool-card [tool]="tool" />
+      }
+    </div>
+  } @else {
+    <div class="empty-state card">
+      <span class="empty-icon"><svg><use href="#i-search" /></svg></span>
+      <h3>No tools found</h3>
+      <p>Try another search.</p>
+      <button type="button" class="btn btn-subtle btn-sm reset-button" (click)="resetFilters.emit()">Reset search <span>↗</span></button>
+    </div>
+  }
+</section>

@@ -1,0 +1,14 @@
+<header class="topbar nav">
+  <a class="brand" href="#top" aria-label="OpenLib home">
+    <span class="brand-mark"><svg><use href="#i-mark" /></svg></span>
+    <span class="brand-word">Openlib<span class="brand-dot">.</span></span>
+  </a>
+  <div class="header-actions nav-actions">
+    <label class="search-box" for="tool-search">
+      <svg class="search-icon"><use href="#i-search" /></svg>
+      <input id="tool-search" type="search" placeholder="Find a tool..." autocomplete="off" [value]="query()" (input)="searchChange.emit($any($event.target).value)" aria-label="Search tools">
+    </label>
+    <button class="icon-button theme-toggle btn btn-ghost btn-icon" type="button" (click)="themeToggle.emit()" [attr.aria-label]="theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'" [attr.title]="theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"><svg><use [attr.href]="theme() === 'dark' ? '#i-sun' : '#i-moon'" /></svg></button>
+    <a class="creator-link" href="https://vvsk.in" target="_blank" rel="noopener noreferrer">Made by vvsk <svg><use href="#i-arrow" /></svg></a>
+  </div>
+</header>

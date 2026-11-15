@@ -1,0 +1,31 @@
+@if (tool().status === 'live') {
+  <a class="tool-card card card-interactive" [attr.data-accent]="tool().accentColor" [href]="tool().url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="'Open ' + tool().name + ' in a new tab'">
+    <ng-container [ngTemplateOutlet]="cardContent" />
+  </a>
+} @else {
+  <article class="tool-card card card-interactive coming-card" [attr.data-accent]="tool().accentColor" aria-disabled="true">
+    <ng-container [ngTemplateOutlet]="cardContent" />
+  </article>
+}
+
+<ng-template #cardContent>
+  <div class="card-header card-topline">
+    <span class="tool-icon"><svg><use [attr.href]="'#i-' + tool().icon" /></svg></span>
+    <span class="status badge" [class.badge-success]="tool().status === 'live'" [class.badge-warning]="tool().status === 'coming-soon'">
+      <span class="status-indicator"></span>{{ tool().status === 'live' ? 'LIVE' : tool().status === 'beta' ? 'BETA' : 'COMING SOON' }}
+    </span>
+  </div>
+  <div class="card-body card-copy">
+    <h2>{{ tool().name }}</h2>
+    <p class="tool-subtitle">{{ tool().subtitle }}</p>
+    <p class="tool-description">{{ tool().description }}</p>
+  </div>
+  <div class="card-footer">
+    <span class="card-link" [class.card-link-disabled]="tool().status === 'coming-soon'">
+      <span>{{ tool().status === 'live' ? 'Open tool' : 'Coming soon' }}</span>
+      <svg><use [attr.href]="tool().status === 'live' ? '#i-arrow' : '#i-spark'" /></svg>
+    </span>
+    <span class="tool-domain">{{ tool().status === 'live' ? toolDomain(tool()) : 'IN THE WORKS' }}</span>
+  </div>
+  <span class="card-glow" aria-hidden="true"></span>
+</ng-template>
