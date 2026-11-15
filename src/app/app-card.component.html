@@ -1,0 +1,40 @@
+@if (app().status === 'live') {
+  <a class="app-card card card-interactive" [attr.data-accent]="app().accentColor" [href]="app().url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="'Open ' + app().name + ' in a new tab'">
+    <ng-container [ngTemplateOutlet]="cardContent" />
+  </a>
+} @else {
+  <article class="app-card card card-interactive coming-card" [attr.data-accent]="app().accentColor" aria-disabled="true">
+    <ng-container [ngTemplateOutlet]="cardContent" />
+  </article>
+}
+
+<ng-template #cardContent>
+  <div class="card-header card-topline">
+    <span class="app-icon"><svg><use [attr.href]="'#i-' + app().icon" /></svg></span>
+    <span class="status badge" [class.badge-success]="app().status === 'live'" [class.badge-warning]="app().status === 'coming-soon'">
+      <span class="status-indicator"></span>{{ app().status === 'live' ? 'LIVE' : app().status === 'beta' ? 'BETA' : 'COMING SOON' }}
+    </span>
+  </div>
+  <div class="card-body card-copy">
+    <div class="card-main">
+      <div class="card-text"><h2>{{ app().name }}</h2><p class="app-subtitle">{{ app().subtitle }}</p><p class="app-description">{{ app().description }}</p></div>
+      @if (app().id === 'mdx') {
+        <div class="mini-document" aria-hidden="true"><b>IDEAS TO IMPACT</b><i></i><strong>Make the<br>important clear.</strong><i></i><i></i><span></span></div>
+      } @else if (app().id === 'imagix') {
+        <div class="mini-reels" aria-hidden="true"><span class="reel reel-one">▶</span><span class="reel reel-two">▶</span><span class="reel reel-three">▶</span><b>YOUR REEL MIX</b></div>
+      } @else if (app().id === 'elevate') {
+        <div class="mini-framework" aria-hidden="true"><b>LEARNING PATH</b><span><i></i> Foundations</span><span><i></i> Build skills</span><span><i></i> Mastery <em>72%</em></span></div>
+      } @else {
+        <div class="mini-coming" aria-hidden="true"><span class="blur-swatch"></span><span class="blur-swatch short"></span><span class="blur-swatch"></span><b><svg><use href="#i-spark" /></svg> More soon</b></div>
+      }
+    </div>
+  </div>
+  <div class="card-footer">
+    <span class="card-link" [class.card-link-disabled]="app().status === 'coming-soon'">
+      <span>{{ app().status === 'live' ? 'Open app' : 'Coming soon' }}</span>
+      <svg><use [attr.href]="app().status === 'live' ? '#i-arrow' : '#i-spark'" /></svg>
+    </span>
+    <span class="app-domain">{{ app().status === 'live' ? appDomain(app()) : 'IN THE WORKS' }}</span>
+  </div>
+  <span class="card-glow" aria-hidden="true"></span>
+</ng-template>

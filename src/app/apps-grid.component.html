@@ -1,0 +1,16 @@
+<section class="app-section section-compact" id="apps" aria-labelledby="apps-title">
+  @if (filteredApps().length > 0) {
+    <div class="app-grid">
+      @for (app of filteredApps(); track app.id) {
+        <ol-app-card [app]="app" />
+      }
+    </div>
+  } @else {
+    <div class="empty-state card">
+      <span class="empty-icon"><svg><use href="#i-search" /></svg></span>
+      <h3>No apps found</h3>
+      <p>Try a different name or keyword.</p>
+      <button type="button" class="btn btn-subtle btn-sm reset-button" (click)="resetFilters.emit()">Reset search <span>↗</span></button>
+    </div>
+  }
+</section>

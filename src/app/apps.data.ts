@@ -1,0 +1,43 @@
+import type { AppItem } from './app.model';
+
+export const APPS: readonly AppItem[] = [
+  {
+    id: 'mdx',
+    name: 'MDX',
+    shortName: 'MDX',
+    subtitle: 'Markdown, ready to present',
+    description: 'Turn Markdown into polished PDFs, presentations, and images. Preview with built-in themes and typefaces, then export in the format you need.',
+    url: 'https://mdx.openlib.in',
+    icon: 'mdx',
+    kind: 'Writing',
+    tags: ['markdown', 'editor', 'pdf', 'presentation', 'image', 'export'],
+    status: 'live',
+    accentColor: 'violet',
+  },
+  {
+    id: 'imagix',
+    name: 'Imagix',
+    shortName: 'IMG',
+    subtitle: 'Short-form video editor',
+    description: 'Bring Instagram Reels together in a short-form edit. Choose clip moments, arrange them in sequence, side by side, or a grid, then preview the layout.',
+    url: 'https://imagix.openlib.in',
+    icon: 'imagix',
+    kind: 'Creative',
+    tags: ['instagram', 'reels', 'video', 'editor', 'social', 'creative'],
+    status: 'live',
+    accentColor: 'orange',
+  },
+  {
+    id: 'elevate',
+    name: 'Elevate',
+    shortName: 'ELEVATE',
+    subtitle: 'A CSS framework for learning platforms',
+    description: 'Build gamified learning experiences with typography and layout utilities, plus components for lessons, quests, progress, mastery, XP, and leaderboards.',
+    url: 'https://elevate.openlib.in/?page=full-reference',
+    icon: 'code',
+    kind: 'Framework',
+    tags: ['css', 'framework', 'learning', 'gamification', 'components', 'developer'],
+    status: 'live',
+    accentColor: 'cyan',
+  },
+];

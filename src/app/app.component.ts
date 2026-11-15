@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component, HostListener, effect, signal } from '@angular/core';
 import { FooterComponent } from './footer.component';
 import { HeaderComponent } from './header.component';
-import { ToolsGridComponent } from './tools-grid.component';
+import { HeroComponent } from './hero.component';
+import { AppsGridComponent } from './apps-grid.component';
 
 @Component({
   selector: 'ol-root',
   standalone: true,
-  imports: [HeaderComponent, ToolsGridComponent, FooterComponent],
+  imports: [HeaderComponent, HeroComponent, AppsGridComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -38,9 +39,9 @@ export class AppComponent {
   onGlobalKeydown(event: KeyboardEvent): void {
     if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
       event.preventDefault();
-      document.querySelector<HTMLInputElement>('#tool-search')?.focus();
+      document.querySelector<HTMLInputElement>('#app-search')?.focus();
     }
-    if (event.key === 'Escape' && document.activeElement?.id === 'tool-search') {
+    if (event.key === 'Escape' && document.activeElement?.id === 'app-search') {
       this.query.set('');
       (document.activeElement as HTMLElement).blur();
     }

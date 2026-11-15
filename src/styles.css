@@ -43,7 +43,7 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { min-width: 320px; scroll-behavior: smooth; }
-body { min-width: 320px; margin: 0; background: var(--bg); }
+body { min-width: 320px; margin: 0; background: radial-gradient(ellipse at 50% -18%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 46%), var(--bg); }
 button, input { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 a { color: inherit; }
@@ -51,7 +51,7 @@ a { color: inherit; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .icon-definitions { position: absolute; width: 0; height: 0; overflow: hidden; }
-.app-shell { width: min(100% - 64px, 1120px); margin: 0 auto; }
+.app-shell { width: min(100% - 64px, 1100px); margin: 0 auto; }
 .app-shell { min-height: 100vh; }
 @media (max-width: 900px) { .app-shell { width: min(100% - 48px, 720px); } }
 @media (max-width: 600px) { .app-shell { width: min(100% - 32px, 480px); } }

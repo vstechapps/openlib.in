@@ -1,11 +1,15 @@
-.topbar { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 26px; padding: 0; border-bottom: 1px solid var(--line); background: transparent; box-shadow: none; }
+.topbar { min-height: 66px; display: flex; align-items: center; justify-content: space-between; gap: 25px; padding: 0; border-bottom: 1px solid var(--line); background: transparent; box-shadow: none; }
 .brand { display: inline-flex; align-items: center; gap: 10px; flex: 0 0 auto; color: var(--text); text-decoration: none; }
 .brand-mark { display: grid; width: 34px; height: 34px; place-items: center; color: white; background: linear-gradient(145deg, #3da9ff, #635eea); border-radius: 10px; box-shadow: 0 5px 18px rgb(54 139 246 / 24%); }
 .brand-mark svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .brand-word { font-family: var(--font-display); font-size: 20px; font-weight: 800; letter-spacing: -.8px; }
 .brand-dot { color: var(--accent); margin-left:3px }
+.main-nav { display: flex; align-self: stretch; align-items: stretch; gap: 24px; margin: 0 auto 0 28px; }
+.main-nav a { position: relative; display: flex; align-items: center; color: var(--text-soft); text-decoration: none; font-size: 11px; transition: color .18s; }
+.main-nav a:hover,.main-nav a.nav-active { color: var(--accent); }
+.main-nav a.nav-active::after { position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; background: var(--accent); content: ''; }
 .header-actions { display: flex; align-items: center; gap: 13px; }
-.search-box { width: min(31vw, 300px); height: 39px; display: flex; align-items: center; gap: 9px; padding: 0 10px 0 12px; color: var(--muted); background: var(--bg-raised); border: 1px solid var(--line); border-radius: 8px; transition: border-color .18s, box-shadow .18s; }
+.search-box { width: min(22vw, 235px); height: 35px; display: flex; align-items: center; gap: 9px; padding: 0 10px 0 12px; color: var(--muted); background: var(--bg-raised); border: 1px solid var(--line); border-radius: 8px; transition: border-color .18s, box-shadow .18s; }
 .search-box:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 13%, transparent); }
 .search-icon { width: 16px; height: 16px; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; }
 .search-box input { width: 100%; min-width: 0; padding: 0; color: var(--text); background: transparent; border: 0; outline: 0;}
@@ -18,11 +22,13 @@
 .creator-link:hover { color: var(--accent); }
 .creator-link svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 @media (max-width: 700px) {
-  .topbar { min-height: 68px; gap: 14px; }
+  .topbar { min-height: 62px; gap: 12px; }
   .header-actions { gap: 8px; }
-  .creator-link { display: none; }
+  .main-nav { gap: 13px; margin-left: 4px; }
+  .main-nav a { font-size: 10px; }
   .search-box { width: min(46vw, 250px); height: 37px; }
 }
+@media (max-width: 520px) { .main-nav { display: none; } .topbar { min-height: 60px; } .search-box { width: min(47vw, 220px); } }
 @media (max-width: 380px) {
   .brand { gap: 7px; }
   .brand-mark { width: 30px; height: 30px; }
