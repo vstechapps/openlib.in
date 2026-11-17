@@ -31,7 +31,7 @@ export const APPS: readonly AppItem[] = [
     id: 'elevate',
     name: 'Elevate',
     shortName: 'ELEVATE',
-    subtitle: 'A CSS framework for learning platforms',
+    subtitle: 'Simple CSS framework',
     description: 'Build gamified learning experiences with typography and layout utilities, plus components for lessons, quests, progress, mastery, XP, and leaderboards.',
     url: 'https://elevate.openlib.in/?page=full-reference',
     icon: 'code',
